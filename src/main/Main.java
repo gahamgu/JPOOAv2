@@ -12,18 +12,20 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        /*
+
         InterfaceUsuario usuario = new InterfaceUsuario();
 
         System.out.println("--- GERENCIAR FINANCIAMENTO ---");
+        System.out.println("Tipo de financiamento - CASA");
         double valorImovel = usuario.pedirValorImovel();
         double taxa = usuario.pedirTaxa();
         int anos = usuario.pedirPrazo();
+        double areaT = usuario.pedirAreaT();
+        double areaC = usuario.pedirAreaC();
 
-        Financiamento fin = new Casa(valorImovel, taxa, anos);
-        System.out.println("Pagamento mensal: R$" + fin.gerarPagamentoMensal(valorImovel, taxa, anos));
-        System.out.println("Pagamento total: R$" + fin.gerarPagamentoTotal(fin.gerarPagamentoMensal(valorImovel, taxa, anos), anos));
-        */
+        Financiamento casa = new Casa(valorImovel, taxa, anos, areaT, areaC);
+        System.out.println();
+        casa.mostrarDados();
 
         ArrayList<Financiamento> listaFinanciamentos = new ArrayList<Financiamento>();
 
@@ -34,6 +36,7 @@ public class Main {
         listaFinanciamentos.add(new Terreno(150000, 0.01, 6, "rural"));
         listaFinanciamentos.add(new Terreno(250000, 0.025, 18, "urbana"));
 
+        System.out.println("--- EXEMPLOS DE FINANCIAMENTO ---");
         for (Financiamento f : listaFinanciamentos) {
             f.mostrarDados();
         }

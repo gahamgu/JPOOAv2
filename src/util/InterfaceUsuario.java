@@ -5,68 +5,99 @@ import java.util.Scanner;
 public class InterfaceUsuario {
     Scanner scanner = new Scanner(System.in);
 
-    double valorDoImovel, taxaDeJuros;
+    double valorDoImovel;
+    double taxaDeJuros;
     int prazoDeFinanciamento;
 
     public double pedirValorImovel() {
-        boolean valido = false;
+        while (true) {
+            try {
+                System.out.print("Digite o valor do imóvel: ");
+                valorDoImovel = Double.parseDouble(scanner.nextLine());
 
-        while (!valido) {
-            System.out.print("Digite o valor do imóvel: ");
-            if (scanner.hasNextDouble()) {
-                valorDoImovel = scanner.nextDouble();
-                scanner.nextLine();
                 if (valorDoImovel > 0) {
-                    valido = true;
+                    break;
                 } else {
                     System.out.println("Valor inválido. Digite um número positivo.");
                 }
-            } else {
-                scanner.next();
+            } catch (NumberFormatException e) {
                 System.out.println("Valor inválido. Digite um número.");
             }
         }
         return valorDoImovel;
     }
 
-    public int pedirPrazo () {
-        boolean valido = false;
+    public int pedirPrazo() {
+        while (true) {
+            try {
+                System.out.print("Digite o valor do prazo: ");
+                prazoDeFinanciamento = Integer.parseInt(scanner.nextLine());
 
-        while (!valido) {
-            System.out.print("Digite o valor do prazo: ");
-            if (scanner.hasNextInt()) {
-                prazoDeFinanciamento = scanner.nextInt();
                 if (prazoDeFinanciamento > 0) {
-                    valido = true;
+                    break;
                 } else {
                     System.out.println("Valor inválido. Prazo deve ser positivo.");
                 }
-            } else {
-                scanner.next();
+            } catch (NumberFormatException e) {
                 System.out.println("Valor inválido. Prazo deve ser um número.");
             }
         }
         return prazoDeFinanciamento;
     }
 
-    public double pedirTaxa () {
-        boolean valido = false;
+    public double pedirTaxa() {
+        while (true) {
+            try {
+                System.out.print("Digite o valor da taxa: ");
+                taxaDeJuros = Double.parseDouble(scanner.nextLine());
 
-        while (!valido) {
-            System.out.print("Digite o valor da taxa: ");
-            if (scanner.hasNextDouble()) {
-                taxaDeJuros = scanner.nextDouble();
                 if (taxaDeJuros > 0) {
-                    valido = true;
+                    break;
                 } else {
                     System.out.println("Valor inválido. Taxa deve ser um número positivo.");
                 }
-            } else {
-                scanner.next();
+            } catch (NumberFormatException e) {
                 System.out.println("Valor inválido. Taxa deve ser um número.");
             }
         }
         return taxaDeJuros;
     }
 
+    public double pedirAreaT() {
+        double areaT;
+        while (true) {
+            try {
+                System.out.print("Digite a área do terreno: ");
+                areaT = Double.parseDouble(scanner.nextLine());
+
+                if (areaT > 0) {
+                    break;
+                } else {
+                    System.out.println("Valor inválido. Digite um número positivo.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Valor inválido. Digite um número.");
+            }
+        }
+        return areaT;
+    }
+
+    public double pedirAreaC() {
+        double areaC;
+        while (true) {
+            try {
+                System.out.print("Digite a área da casa: ");
+                areaC = Double.parseDouble(scanner.nextLine());
+
+                if (areaC > 0) {
+                    break;
+                } else {
+                    System.out.println("Valor inválido. Digite um número positivo.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Valor inválido. Digite um número.");
+            }
+        }
+        return areaC;
+    }
 }
