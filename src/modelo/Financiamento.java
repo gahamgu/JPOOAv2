@@ -1,37 +1,20 @@
 package modelo;
 
-public class Financiamento {
-
+public abstract class Financiamento {
     // Variáveis
-    private double valorImovel, taxaJurosAnual;
-    private int prazoFinanciamento;
+    protected double valorImovel;
+    protected double taxaJurosAnual;
+    protected int prazoFinanciamento;
+    protected double pagamentoMensal;
+    protected double pagamentoTotal;
 
     // Getters
-
-    public double getPrazoFinanciamento(int prazoFinanciamento) {
-        return prazoFinanciamento;
-    }
-    public double getValorImovel () {
+    public double getValorImovel() {
         return valorImovel;
     }
-
     public double getTaxaJurosAnual() {
         return taxaJurosAnual;
     }
-
-    // Setters
-    public void setPrazoFinanciamento(int prazoFinanciamento) {
-        this.prazoFinanciamento = prazoFinanciamento;
-    }
-
-    public void setValorImovel(double valorImovel) {
-        this.valorImovel = valorImovel;
-    }
-
-    public void setTaxaJurosAnual(double taxaJurosAnual) {
-        this.taxaJurosAnual = taxaJurosAnual;
-    }
-
     public int getPrazoFinanciamento() {
         return prazoFinanciamento;
     }
@@ -43,12 +26,8 @@ public class Financiamento {
         this.prazoFinanciamento = prazoFinanciamento;
     }
 
-    public double gerarPagamentoMensal(double valorImovel, double taxaJurosAnual, int prazoFinanciamento) {
-        double pagamentoMensal;
+    public abstract double gerarPagamentoMensal(double valorImovel, double taxaJurosAnual, int prazoFinanciamento);
 
-        pagamentoMensal = (valorImovel / prazoFinanciamento) * (1 + (taxaJurosAnual/12));
-        return pagamentoMensal;
-    }
 
     public double gerarPagamentoTotal(double pagamentoMensal, int prazoFinanciamento) {
         double pagamentoTotal;
@@ -57,7 +36,7 @@ public class Financiamento {
         return pagamentoTotal;
     }
 
-    public void mostrarDados (double valorImovel, double taxaJurosAnual, int prazoFinanciamento, double pagamentoTotal, double pagamentoMensal) {
+    public void mostrarDados() {
         System.out.println("--- DADOS DO FINANCIAMENTO ---");
         System.out.printf("Valor do imóvel:     R$%.2f\r\n", valorImovel);
         System.out.printf("Valor da taxa de juros anual: %.2f\r\n", taxaJurosAnual);
@@ -65,5 +44,4 @@ public class Financiamento {
         System.out.printf("Valor do pagamento total: R$%.2f\r\n", pagamentoTotal);
         System.out.printf("Prazo de financiamento: %d meses\r\n", prazoFinanciamento);
     }
-
 }
