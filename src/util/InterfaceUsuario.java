@@ -1,14 +1,19 @@
+// PERTENCE AO PACOTE
 package util;
 
+// IMPORTA A CLASSE
 import java.util.Scanner;
 
 public class InterfaceUsuario {
+    // CRIA O OBJETO SCANNER
     Scanner scanner = new Scanner(System.in);
 
+    // VARIÁVEIS
     double valorDoImovel;
     double taxaDeJuros;
     int prazoDeFinanciamento;
 
+    // MÉTODOS PARA SOLICITAR OS VALORES DESEJADOS
     public double pedirValorImovel() {
         while (true) {
             try {
